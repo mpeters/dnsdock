@@ -264,7 +264,7 @@ func (s *DNSServer) handleRequest(w dns.ResponseWriter, r *dns.Msg) {
 	}
 
 	if s.config.verbose {
-		log.Println("DNS request for query " + query)
+		log.Println("DNS request for query " + query + " from remote " + w.RemoteAddr().String())
 	}
 
 	for service := range s.queryServices(query) {
