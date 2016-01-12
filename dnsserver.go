@@ -299,6 +299,9 @@ func (s *DNSServer) handleRequest(w dns.ResponseWriter, r *dns.Msg) {
 		}
 	}
 
+	if s.config.verbose {
+		log.Println("Response:\n" + m.String())
+	}
 	w.WriteMsg(m)
 }
 
